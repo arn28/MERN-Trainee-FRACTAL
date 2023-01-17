@@ -5,11 +5,13 @@ import WelcomePage from './pages/welcomePage';
 import CreateProduct from './pages/products/CreateProduct';
 import EditProduct from './pages/products/EditProduct';
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
+      
+      
       <nav className="navbar">
         <a href="/" className="navbar__pagetitle">BLAZE</a>
         <ul>
@@ -20,6 +22,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+          
           <Route path='/' element={<WelcomePage/>} exact></Route>
           <Route path='/products' element={<ProductsList/>} exact></Route>
           <Route path='/createproduct' element={<CreateProduct/>} exact></Route>

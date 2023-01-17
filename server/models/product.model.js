@@ -8,25 +8,25 @@ const schema = mongoose.Schema
 const productSchema = new schema({
     name: {
         type: String,
-        required: false
+        required: true
     },
     category: {
         type: String,
-        required: false,
+        required: true,
         enum: ['Cookies', 'Candies', 'Cakes', 'Desserts', 'Drinks']
     },
     unitePrice: {
         type: Number,
-        required: false
+        required: true
     },
     status: {
         type: String,
-        required: false,
+        required: true,
         enum: ['Active', 'Inactive']
     },
     idproduct: {
         type: String,
-        required: false
+        required: true
     }
 });
 
@@ -46,12 +46,24 @@ router.post('/createproduct', (req, res) => {
         status: req.body.status,
         idproduct: req.body.idproduct
     })
-    
-    newproduct.save(function(err){
-        if(!err){
+
+    newproduct.save(function (err) {
+        if (!err) {
             res.send('New product added successfully!')
+        } else {
+            res.send(err)
+        }
+    })
+})
+
+
+//get all the products
+router.get('/getproducts', (req, res) => {
+    ProductModel.find({}, function(docs, err){
+        if(!err){
+            res.send(docs)
         }else{
             res.send(err)
         }
     })
-    })
+})

@@ -1,37 +1,62 @@
 // import axios from 'axios'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Product from './Product'
 // import UsuarioIndividual from './UsuarioIndividual'
 
 function ProductsList() {
 
-    // const [datausuarios, setdatausuario] = useState([])
+    const [dataproducts, setdataproduct] = useState([])
 
-    // useEffect(() => {
-    //     axios.get('api/usuario/obtenerusuarios').then(res => {
-    //         console.log(res.data)
-    //         setdatausuario(res.data)
-    //     }).catch(err => {
-    //         console.log(err)
-    //     })
+    useEffect(() => {
+        axios.get('/api/product.model/getproducts').then(res => {
+            console.log(res.data)
+            setdataproduct(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
 
-    // }, [])
+    }, [])
 
-    //Mapping productslist in object product
-    // const listausuarios = datausuarios.map(usuario => {
-    //     return (
-    //         <div>
-    //             <UsuarioIndividual usuario={usuario} />
-    //         </div>
-    //     )
-    // })
+    // Mapping productslist in object product
+    const productlist = dataproducts.map((product, index) => {
+        return (
+            
+                <Product product={product} index={index} />
+            
+        )
+    })
 
 
     return (
         <div>
-            <h2 className='products__title'>Products</h2>
-            <Product/>
+            <div className="container">
+                <h2 className='products__title title m-0 mt-4'>Products</h2>
+                <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <Link to='/createproduct' className="btn m-4 btn-primary ">Create a product</Link>
+                </div>
+            </div>
+            <div className="container">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {productlist}
+                    </tbody>
+                </table>
+            </div>
+            {/* <Product /> */}
             {/* {productlist} */}
+
         </div>
     )
 }

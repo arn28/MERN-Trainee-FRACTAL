@@ -56,3 +56,28 @@ html{
   opacity: 70%;
 }
 
+.title{
+  text-align: initial;
+  margin: 20px 0;
+}
+
+.btn-edit{
+  color: green;
+  
+}
+
+.btn-edit:hover{
+  color: green;
+  opacity: 0.6;
+}
+
+.btn-delete{
+  color: red;
+  
+}
+
+.btn-delete:hover{
+  color: red;
+  opacity: 0.6;
+}
+
