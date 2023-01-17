@@ -1,0 +1,11 @@
+.createProduct__title{
+    margin: 20px 0;
+}
+.btn.btn-primary {
+    --bs-btn-bg: #264653;
+    --bs-btn-border-color: none;
+    --bs-btn-hover-bg: rgb(38, 70, 83, 0.85);
+    margin: 20px;
+
+}
+

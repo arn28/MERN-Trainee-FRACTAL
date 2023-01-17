@@ -1,0 +1,58 @@
+
+html{
+  /* background-color: #2a9d8f; */
+  font-size: 14px;
+  
+}
+.App {
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.App .navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  background-color: #264653;
+  color: white;
+  height: 72px;
+}
+
+.App .navbar__pagetitle{
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.App .navbar__pagetitle:hover{
+  transform: scale(1.1);
+}
+
+.App ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.App ul li{
+  list-style: none;
+}
+
+.navbar__option{
+  text-decoration: none;
+  color: white;
+  /* text-transform: uppercase; */
+  /* font-weight: 700; */
+}
+
+.navbar__option:active{
+  color: #e76f51;
+  font-weight: 700;
+}
+
+.navbar__option:hover{
+  opacity: 70%;
+}
+
