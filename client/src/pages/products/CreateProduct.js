@@ -1,11 +1,13 @@
 import './CreateProduct.css';
 import Swal from 'sweetalert2';
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import uniquid from 'uniqid';
 import axios from 'axios';
 
 function CreateProduct() {
+
+    const navegate = useNavigate()
 
     //Hooks
     const [name, setName] = useState('')
@@ -42,7 +44,7 @@ function CreateProduct() {
                         text: name,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.reload();
+                            navegate('/products');;
                         }
                     })
                 }

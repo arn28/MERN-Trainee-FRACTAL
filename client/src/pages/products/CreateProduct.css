@@ -3,7 +3,5 @@
     --bs-btn-bg: #264653;
     --bs-btn-border-color: none;
     --bs-btn-hover-bg: rgb(38, 70, 83, 0.85);
-    /* margin: 18px; */
-
+    --bs-btn-active-bg: rgb(38, 70, 83, 0.85);
 }
-

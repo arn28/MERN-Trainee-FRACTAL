@@ -23,7 +23,7 @@ function ProductsList() {
     const productlist = dataproducts.map((product, index) => {
         return (
             
-                <Product product={product} index={index} />
+                <Product key={index.toString()} product={product} index={index} />
             
         )
     })
@@ -54,8 +54,6 @@ function ProductsList() {
                     </tbody>
                 </table>
             </div>
-            {/* <Product /> */}
-            {/* {productlist} */}
 
         </div>
     )

@@ -5,32 +5,28 @@ import WelcomePage from './pages/welcomePage';
 import CreateProduct from './pages/products/CreateProduct';
 import EditProduct from './pages/products/EditProduct';
 
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import NavMenu from './pages/NavMenu.js';
+
 
 function App() {
+
+  
+  // const navegate = useNavigate()
   return (
     <div className="App">
-      
-      
-      <nav className="navbar">
-        <a href="/" className="navbar__pagetitle">BLAZE</a>
-        <ul>
-          <li><a className="navbar__option" href="/orders">Orders</a></li>
-          <li><a className="navbar__option" href="/products">Products</a></li>
-        </ul>
-      </nav>
 
       <BrowserRouter>
+        <NavMenu />
         <Routes>
-          
-          <Route path='/' element={<WelcomePage/>} exact></Route>
-          <Route path='/products' element={<ProductsList/>} exact></Route>
-          <Route path='/createproduct' element={<CreateProduct/>} exact></Route>
-          <Route path='/editproduct' element={<EditProduct/>} exact></Route>
+          <Route path='/' element={<WelcomePage />} exact></Route>
+          <Route path='/products' element={<ProductsList />} exact></Route>
+          <Route path='/createproduct' element={<CreateProduct />} exact></Route>
+          <Route path='/editproduct/:idproduct' element={<EditProduct />} exact></Route>
         </Routes>
-    </BrowserRouter>   
+      </BrowserRouter>
     </div>
-    
+
   );
 }
 
