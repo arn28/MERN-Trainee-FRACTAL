@@ -22,7 +22,7 @@ function ProductsList() {
 
     // Mapping productslist in object product
     const productlist = [dataproducts].map((product) => {
-        
+        console.log(productlist);
         return (
             
                 <Product product={product} />
