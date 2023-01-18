@@ -21,6 +21,6 @@ app.get('/', (req, res) => {
 
 
 //Basic server config
-app.listen(5000, function(){
+app.listen(9001, function(){
     console.log('NODE server is running correctly ...')
 })
