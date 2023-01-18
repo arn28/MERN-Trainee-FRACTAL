@@ -32,8 +32,6 @@ function ProductsList() {
     console.log(productlist);
     console.log('end');
 
-
-
     return (
         <div>
             <div className="container">
