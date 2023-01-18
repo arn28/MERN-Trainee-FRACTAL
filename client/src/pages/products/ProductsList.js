@@ -70,9 +70,11 @@ function ProductsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dataproducts.map((product, index) => (
-                            <Product key={product.idproduct} product={product} index={index} />
-                        ))
+                        {dataproducts && dataproducts.length && dataproducts.map((product, index) => {
+                            return (
+                                <Product key={product.idproduct} product={product} index={index} />
+                            )
+                        })
                         }
                     </tbody>
                 </table>
