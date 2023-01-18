@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 
 
 //Basic server config
-app.listen(9001, function(){
+const port = 9001;
+app.listen(port, function(){
     console.log('NODE server is running correctly ...')
 })
