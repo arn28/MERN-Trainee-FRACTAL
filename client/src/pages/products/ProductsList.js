@@ -21,7 +21,7 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    const productlist = [dataproducts][0].map((product) => {
+    const productlist = [dataproducts].map((product) => {
         
         return (
             
