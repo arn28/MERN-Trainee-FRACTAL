@@ -2,6 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom'   
 import Product from './Product'
 // import UsuarioIndividual from './UsuarioIndividual'
 
@@ -20,12 +21,12 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    const dataproductsArray = [dataproducts][0];
-    const productlist = dataproductsArray.map((product, index) => {
+    const dataproductsArray = [dataproducts][0]
+    const productlist = dataproductsArray.map((product) => {
         
         return (
             
-                <Product key={index.toString()} product={product} index={index} />
+                <Product product={product} />
             
         )
     })
