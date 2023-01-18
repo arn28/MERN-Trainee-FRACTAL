@@ -19,7 +19,7 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    let productlist = data.map((product, index) => {
+    const productlist = data.map((product, index) => {
         return (
 
 
@@ -28,10 +28,10 @@ function ProductsList() {
         )
     })
         
-
     console.log('here');
     console.log(productlist);
     console.log('end');
+
 
 
     return (
