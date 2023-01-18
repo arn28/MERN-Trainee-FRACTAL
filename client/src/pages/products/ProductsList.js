@@ -71,7 +71,7 @@ function ProductsList() {
                     </thead>
                     <tbody>
                         {dataproducts.map((product, index) => (
-                            <Product key={index.toString()} product={product} index={index} />
+                            <Product key={product.idproduct} product={product} index={index} />
                         ))
                         }
                     </tbody>
