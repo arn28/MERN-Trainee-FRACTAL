@@ -2,9 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import ReactDOM from 'react-dom'
 import Product from './Product'
-// import UsuarioIndividual from './UsuarioIndividual'
 
 function ProductsList() {
 
@@ -21,18 +19,18 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    const productlist = dataproducts.map((product, index) => {
-        return (
-            
+    // const productlist = dataproducts.map((product, index) => {
+    //     return (
 
-            <Product key={index.toString()} product={product} index={index} />
 
-        )
-    })
+    //         <Product key={index.toString()} product={product} index={index} />
 
-    console.log('here');
-    console.log(productlist);
-    console.log('end');
+    //     )
+    // })
+
+    // console.log('here');
+    // console.log(productlist);
+    // console.log('end');
 
 
     return (
@@ -56,7 +54,15 @@ function ProductsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {productlist}
+                        {/* {productlist} */}
+                        {dataproducts.map((product, index) => {
+                            return (
+
+
+                                <Product key={index.toString()} product={product} index={index} />
+
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>
