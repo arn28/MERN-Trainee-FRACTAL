@@ -30,19 +30,23 @@ function ProductsList() {
     }, []);
 
     // Mapping productslist in object product
-    const productlist = dataproducts.map((product, index) => {
-        return (
-            <Product key={index.toString()} product={product} index={index} />
-        )
-    })
+    // const productlist = dataproducts.map((product, index) => {
+    //     return (
+    //         <Product key={index.toString()} product={product} index={index} />
+    //     )
+    // })
+
+    // dataproducts.map((product, index) => (
+    //     <Product key={index.toString()} product={product} index={index} />
+    // ))
 
 
 
 
 
-    console.log('here');
-    console.log(productlist);
-    console.log('end');
+    // console.log('here');
+    // console.log(productlist);
+    // console.log('end');
 
 
     return (
@@ -66,7 +70,10 @@ function ProductsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {productlist}
+                        {dataproducts.map((product, index) => (
+                            <Product key={index.toString()} product={product} index={index} />
+                        ))
+                        }
                     </tbody>
                 </table>
             </div>
