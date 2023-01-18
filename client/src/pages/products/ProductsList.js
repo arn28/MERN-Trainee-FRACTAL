@@ -1,12 +1,12 @@
 // import axios from 'axios'
 import axios from 'axios'
-import React, { useEffect, useState, map } from 'react'
+import React, { useEffect, useState, map} from 'react'
 import { Link } from 'react-router-dom'
 import Product from './Product'
 
 function ProductsList() {
 
-    const [dataproducts, setdataproduct] = useState([])
+    const [data, setdataproduct] = useState([])
 
     useEffect(() => {
         axios.get('/api/product.model/getproducts').then(res => {
@@ -19,8 +19,7 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    let productlist=[];
-    productlist = dataproducts.map((product, index) => {
+    let productlist = data.map((product, index) => {
         return (
 
 
@@ -28,6 +27,7 @@ function ProductsList() {
 
         )
     })
+        
 
     console.log('here');
     console.log(productlist);
@@ -56,7 +56,7 @@ function ProductsList() {
                     </thead>
                     <tbody>
                         {productlist}
-                        
+
                     </tbody>
                 </table>
             </div>
