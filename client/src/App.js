@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import ProductsList from './pages/products/ProductsList.js';
 import WelcomePage from './pages/welcomePage';
 import CreateProduct from './pages/products/CreateProduct';
 import EditProduct from './pages/products/EditProduct';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavMenu from './pages/NavMenu.js';
 
 
