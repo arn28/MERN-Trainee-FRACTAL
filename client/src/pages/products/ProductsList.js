@@ -20,7 +20,8 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    const productlist = dataproducts.map((product, index) => {
+    const productlist = [dataproducts].map((product, index) => {
+        
         return (
             
                 <Product key={index.toString()} product={product} index={index} />
