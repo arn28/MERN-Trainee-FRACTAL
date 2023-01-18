@@ -20,7 +20,8 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    const productlist = [dataproducts].map((product, index) => {
+    const dataproductsArray = [dataproducts][0];
+    const productlist = dataproductsArray.map((product, index) => {
         
         return (
             
