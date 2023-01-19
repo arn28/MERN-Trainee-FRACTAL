@@ -1,13 +1,19 @@
 const express = require('express')
 const cors = require('cors');
+require('dotenv').config();
 const app = express();
+
+//port config
+const port = process.env.PORT || 9000;
+
+
+
 
 //Import mongoDB connection
 const fileDB = require('./DBconnection')
 
 //Import routes and models
 const productRoute = require('./models/product.model')
-
 
 
 //Import body parser
@@ -53,7 +59,11 @@ app.get('/', (req, res) => {
 
 
 //Basic server config
-const port = 9001;
-app.listen(port, function () {
-    console.log('NODE server is running correctly ...')
-})
+// const port = 9001;
+// app.listen(port, function () {
+//     console.log('NODE server is running correctly ...')
+// })
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
