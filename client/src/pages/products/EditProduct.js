@@ -57,7 +57,7 @@ function EditProduct() {
                 if (result.isConfirmed) {
 
                     //New objet to update the product
-                    const updateproduct = {
+                    var updateproduct = {
                         name: name,
                         category: category,
                         unitePrice: parseFloat(unitePrice),
