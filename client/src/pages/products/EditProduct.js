@@ -34,10 +34,10 @@ function EditProduct() {
     //update product
     function editProduct() {
 
-        if (name == '' ||
-            category == '' ||
-            unitePrice == '' ||
-            status == '') {
+        if (name === '' ||
+            category === '' ||
+            unitePrice === '' ||
+            status === '') {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops....',
@@ -67,6 +67,7 @@ function EditProduct() {
 
                     //Make request using axios
                     axios.post('https://mern-trainee-backend-test.up.railway.app/api/product.model/updateproduct', updateproduct).then(res => {
+                        console.log(res.data)
                         Swal.fire({
                             icon: "success",
                             title: "Your product has been modified successfully.",
