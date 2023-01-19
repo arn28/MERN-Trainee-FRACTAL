@@ -2,9 +2,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Product from './Product'
+import Product from '../products/Product'
 
-function ProductsList() {
+function OrdersList() {
 
     const [dataproducts, setdataproduct] = useState([])
 
@@ -61,4 +61,4 @@ function ProductsList() {
     )
 }
 
-export default ProductsList
+export default OrdersList
