@@ -11,7 +11,8 @@ const corsOptions = {
     origin: "*",
     optionsSuccessStatus: 200,
 };
-
+app.use(cors(corsOptions));
+//
 
 
 //Import mongoDB connection
@@ -28,8 +29,7 @@ app.use(bodyParser.urlencoded({ extended: 'true' }))
 
 
 
-app.use(cors(corsOptions));
-//
+
 
 
 app.use('/api/product.model', productRoute)
