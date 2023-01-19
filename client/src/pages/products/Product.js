@@ -32,7 +32,7 @@ function Product({ product, index }) {
                         text: "Your product has been deleted."
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            navegate(0);
+                            navegate('/products');
                         }
                     });
                 }).catch(err => {
