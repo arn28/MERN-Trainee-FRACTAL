@@ -44,7 +44,7 @@ function CreateProduct() {
                         text: name,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            navegate('/products');;
+                            navegate('/products');
                         }
                     })
                 }
