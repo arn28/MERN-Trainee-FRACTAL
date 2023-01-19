@@ -10,43 +10,43 @@ function ProductsList() {
 
     useEffect(() => {
 
-        // axios.get('/api/product.model/getproducts').then(res => {
-        //     setdataproduct(res.data)
-        // }).catch(err => {
-        //     console.log(err)
-        // })
+        axios.get('/api/product.model/getproducts').then(res => {
+            setdataproduct(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
 
-        async function fetchProducts() {
-            try {
-                const response = await axios.get('/api/product.model/getproducts');
-                setdataproduct(response.data);
-            }
-            catch (error) {
-                console.log(error)
-            }
-        }
-        fetchProducts();
+        // async function fetchProducts() {
+        //     try {
+        //         const response = await axios.get('/api/product.model/getproducts');
+        //         setdataproduct(response.data);
+        //     }
+        //     catch (error) {
+        //         console.log(error)
+        //     }
+        // }
+        // fetchProducts();
 
     }, []);
 
     // Mapping productslist in object product
-    // const productlist = dataproducts.map((product, index) => {
-    //     return (
-    //         <Product key={index.toString()} product={product} index={index} />
-    //     )
-    // })
+    const productlist = dataproducts.map((product, index) => {
+        return (
+            <Product key={index.toString()} product={product} index={index} />
+        )
+    })
 
-    // dataproducts.map((product, index) => (
-    //     <Product key={index.toString()} product={product} index={index} />
-    // ))
-
-
+    dataproducts.map((product, index) => (
+        <Product key={index.toString()} product={product} index={index} />
+    ))
 
 
 
-    // console.log('here');
-    // console.log(productlist);
-    // console.log('end');
+
+
+    console.log('here');
+    console.log(productlist);
+    console.log('end');
 
 
     return (
@@ -70,12 +70,7 @@ function ProductsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dataproducts && dataproducts.length && dataproducts.map((product, index) => {
-                            return (
-                                <Product key={product.idproduct} product={product} index={index} />
-                            )
-                        })
-                        }
+                        {productlist}
                     </tbody>
                 </table>
             </div>
