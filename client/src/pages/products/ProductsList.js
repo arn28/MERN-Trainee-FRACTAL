@@ -9,7 +9,7 @@ function ProductsList() {
     const [dataproducts, setdataproduct] = useState([])
 
     useEffect(() => {
-        axios.get('https://mern-trainee-fractal-backend.vercel.app//api/product.model/getproducts').then(res => {
+        axios.get('https://mern-trainee-backend-test.up.railway.app/api/product.model/getproducts').then(res => {
             // console.log(res.data)
             setdataproduct(res.data)
             console.log('test data useeffect');
