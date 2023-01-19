@@ -26,7 +26,7 @@ function CreateProduct() {
         console.log(product)
 
         //
-        axios.post('/api/product.model/createproduct', product)
+        axios.post('https://mern-trainee-backend-test.up.railway.app/api/product.model/createproduct', product)
             .then(res => {
                 if (res.data.name === 'ValidationError') {
                     Swal.fire({
