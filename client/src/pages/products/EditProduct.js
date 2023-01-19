@@ -66,7 +66,7 @@ function EditProduct() {
                     }
 
                     //Make request using axios
-                    axios.post('/api/product.model/updateproduct', updateproduct).then(res => {
+                    axios.post('https://mern-trainee-backend-test.up.railway.app/api/product.model/updateproduct', updateproduct).then(res => {
                         Swal.fire({
                             icon: "success",
                             title: "Your product has been modified successfully.",
