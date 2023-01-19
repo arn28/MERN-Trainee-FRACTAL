@@ -6,7 +6,11 @@ const app = express();
 //port config
 const port = process.env.PORT || 9000;
 
-
+//cors
+const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+};
 
 
 //Import mongoDB connection
@@ -21,11 +25,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: 'true' }))
 
-//cors
-const corsOptions = {
-    origin: "*",
-    optionsSuccessStatus: 200,
-};
+
 
 app.use(cors(corsOptions));
 //
