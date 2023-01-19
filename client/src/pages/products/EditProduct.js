@@ -21,7 +21,7 @@ function EditProduct() {
 
     //get date from a product
     useEffect(() => {
-        axios.post('https://mern-trainee-backend-test.up.railway.app/api/product.model/getproductdata', { idproduct: params.idproduct }).then(res => {
+        axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/getproductdata', { idproduct: params.idproduct }).then(res => {
             console.log(res.data[0])
             const dataproduct = res.data[0]
             setName(dataproduct.name)
@@ -66,7 +66,7 @@ function EditProduct() {
                     }
 
                     //Make request using axios
-                    axios.post('https://mern-trainee-backend-test.up.railway.app/api/product.model/updateproduct', updateproduct).then(res => {
+                    axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/updateproduct', updateproduct).then(res => {
                         console.log(res.data)
                         Swal.fire({
                             icon: "success",
