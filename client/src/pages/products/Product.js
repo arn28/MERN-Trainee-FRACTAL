@@ -22,7 +22,7 @@ function Product({ product, index }) {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/delproduct', { idproduct: idproduct }).then(res => {
+                axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product/delproduct', { idproduct: idproduct }).then(res => {
                     console.log(res.data)
                     // alert(res.data)
                     Swal.fire({
