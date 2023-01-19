@@ -39,5 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mern-trainee-fractal-backend.vercel.app/"
+  "proxy": "https://mern-trainee-fractal-frontend.vercel.app/"
 }
