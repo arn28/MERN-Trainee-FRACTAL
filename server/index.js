@@ -1,5 +1,5 @@
 const express = require('express')
-// const cors = require('cors');
+const cors = require('cors');
 const app = express();
 
 //Import mongoDB connection
@@ -8,13 +8,23 @@ const fileDB = require('./DBconnection')
 //Import routes and models
 const productRoute = require('./models/product.model')
 
+
+
 //Import body parser
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: 'true' }))
 
+//cors
+const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 
 app.use('/api/product.model', productRoute)
+
 
 app.get('/', (req, res) => {
     res.end('Welcome to backend Node.js to MERN Trainee FRACTAL. Running...')
@@ -37,6 +47,8 @@ app.get('/', (req, res) => {
 // app.use(cors({
 //     origin: '*'
 // }));
+
+
 
 //Basic server config
 const port = 9001;
