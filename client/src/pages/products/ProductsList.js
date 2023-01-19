@@ -22,14 +22,14 @@ function ProductsList() {
     }, [])
 
     // Mapping productslist in object product
-    // const productlist = dataproducts.map((product, index) => {
-    //     return (
+    const productlist = dataproducts.map((product, index) => {
+        return (
 
 
-    //         <Product key={index.toString()} product={product} index={index} />
+            <Product key={index.toString()} product={product} index={index} />
 
-    //     )
-    // })
+        )
+    })
 
     // console.log('here');
     // console.log(productlist);
@@ -57,7 +57,7 @@ function ProductsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {productlist} */}
+                        {productlist}
                     </tbody>
                 </table>
             </div>
