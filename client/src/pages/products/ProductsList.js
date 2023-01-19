@@ -12,6 +12,9 @@ function ProductsList() {
         axios.get('/api/product.model/getproducts').then(res => {
             // console.log(res.data)
             setdataproduct(res.data)
+            console.log('test data useeffect');
+            console.log(res.data);
+            console.log('end');
         }).catch(err => {
             console.log(err)
         })
@@ -21,7 +24,7 @@ function ProductsList() {
     // Mapping productslist in object product
     const productlist = dataproducts.map((product, index) => {
         return (
-            
+
 
             <Product key={index.toString()} product={product} index={index} />
 
