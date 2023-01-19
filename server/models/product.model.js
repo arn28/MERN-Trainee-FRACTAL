@@ -84,7 +84,7 @@ router.post('/updateproduct', (req, res) => {
         name: req.body.name,
         category: req.body.category,
         unitePrice: req.body.unitePrice,
-        status: req.body.status,        
+        status: req.body.status        
     }, (err) => {
         if (!err) {
             res.send('Product updated successfully!')
