@@ -1,17 +1,16 @@
-
 import React from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2';
 
 
-function Order({ product, index }) {
+function Order({ order, index }) {
 
 
     const navegate = useNavigate()
 
-    //Function to delete product
-    function delProduct(idproduct) {
+    //Function to delete order
+    function delOrder(orderNumber) {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -22,7 +21,7 @@ function Order({ product, index }) {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/delproduct', { idproduct: idproduct }).then(res => {
+                axios.post('/api/order/delorder', { orderNumber: orderNumber }).then(res => {
                     console.log(res.data)
                     // alert(res.data)
                     Swal.fire({
@@ -45,16 +44,23 @@ function Order({ product, index }) {
 
     }
 
+    function formatDate(dateRaw) {
+        var date = new Date(dateRaw);
+        var formattedDate = date.getUTCDate().toString().padStart(2, '0')  + '-' + (date.getUTCMonth() + 1).toString().padStart(2, '0')  + '-' + date.getUTCFullYear();
+        return (formattedDate);
+    }
+    // console.log(formatDate(order.date));
+
     return (
         <tr>
             <th scope="row">{index + 1}</th>
-            <td>{product.name}</td>
-            <td>{product.category}</td>
-            <td>${product.unitePrice}</td>
-            <td>{product.status}</td>
+            <td>{order.customer}</td>
+            <td>{order.status}</td>
+            <td>{formatDate(order.date)}</td>
+            <td>{order.totalAmount}</td>
             <td>
-                <Link to={`/editproduct/${product.idproduct}`} className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></Link>
-                <button onClick={() => { delProduct(product.idproduct) }} className='btn btn-delete fa-solid fa-trash'><i className=""></i></button>
+                <Link to={`/editproduct/${order.orderNumber}`} className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></Link>
+                <button onClick={() => { delOrder(order.orderNumber) }} className='btn btn-delete fa-solid fa-trash'><i className=""></i></button>
             </td>
         </tr>
     )

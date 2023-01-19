@@ -7,6 +7,8 @@ import EditProduct from './pages/products/EditProduct';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavMenu from './pages/NavMenu.js';
 import OrdersList from './pages/orders/OrdersList';
+import CreateOrder from './pages/orders/CreateOrder';
+import EditOrder from './pages/orders/EditOrder';
 
 
 function App() {
@@ -25,8 +27,8 @@ function App() {
           <Route path='/editproduct/:idproduct' element={<EditProduct />} exact></Route>
           
           <Route path='/orders' element={<OrdersList />} exact></Route>
-          <Route path='/createproduct' element={<CreateProduct />} exact></Route>
-          <Route path='/editproduct/:idproduct' element={<EditProduct />} exact></Route>
+          <Route path='/createorder' element={<CreateOrder />} exact></Route>
+          <Route path='/editorder/:orderNumber' element={<EditOrder />} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>

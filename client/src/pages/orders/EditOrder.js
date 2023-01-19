@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 
-function EditProduct() {
+function EditOrder() {
 
     const params = useParams()
 
     //Hooks
-    const [name, setName] = useState('')
-    const [category, setCategory] = useState('')
-    const [unitePrice, setUnitePrice] = useState('')
+    const [customer, setCustomer] = useState('')
     const [status, setStatus] = useState('')
+    const [date, setDate] = useState('')
+    const [items, setItems] = useState('')
 
 
     //use to go back to index
@@ -21,23 +21,22 @@ function EditProduct() {
 
     //get date from a product
     useEffect(() => {
-        axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/getproductdata', { idproduct: params.idproduct }).then(res => {
+        axios.post('/api/order/getproductdata', { orderNumber: params.orderNumber }).then(res => {
             console.log(res.data[0])
-            const dataproduct = res.data[0]
-            setName(dataproduct.name)
-            setCategory(dataproduct.category)
-            setUnitePrice(dataproduct.unitePrice)
-            setStatus(dataproduct.status)
+            const dataorder = res.data[0]
+            setCustomer(dataorder.customer)
+            setStatus(dataorder.status)
+            setDate(dataorder.date)
+            setItems(dataorder.items)
         })
     }, [])
 
     //update product
-    function editProduct() {
+    function editOrder() {
 
-        if (name === '' ||
-            category === '' ||
-            unitePrice === '' ||
-            status === '') {
+        if (customer === '' ||
+        status === '' ||
+        items === '') {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops....',
@@ -57,16 +56,16 @@ function EditProduct() {
                 if (result.isConfirmed) {
 
                     //New objet to update the product
-                    var updateproduct = {
-                        name: name,
-                        category: category,
-                        unitePrice: parseFloat(unitePrice),
+                    var updateorder = {
+                        customer: customer,
                         status: status,
-                        idproduct: params.idproduct
+                        date: date,
+                        items: items,
+                        orderNumber: params.orderNumber
                     }
 
                     //Make request using axios
-                    axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product.model/updateproduct', updateproduct).then(res => {
+                    axios.post('/api/order/updateorder', updateorder).then(res => {
                         console.log(res.data)
                         Swal.fire({
                             icon: "success",
@@ -75,7 +74,7 @@ function EditProduct() {
                             text: ""
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                navegate('/products');
+                                navegate('/orders');
                             }
                         });
                     }).catch(err => { console.log(err) })
@@ -85,51 +84,52 @@ function EditProduct() {
     }
 
     return (
-        <div className='container'>
-            <h2 className='products__title title m-0 mt-4 mb-4'>Edit Product: {name}</h2>
-            <div className="row">
-                <div className="col-sm-6 offset-3">
-                    <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Name</label>
-                        <input autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>
-                    </div>
+        // <div className='container'>
+        //     <h2 className='products__title title m-0 mt-4 mb-4'>Edit Order N⁰: {params.orderNumber}</h2>
+        //     <div className="row">
+        //         <div className="col-sm-6 offset-3">
+        //             <div className="mb-3">
+        //                 <label htmlFor="name" className="form-label">Name</label>
+        //                 <input autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>
+        //             </div>
 
-                    <div className="mb-3">
-                        <label htmlFor="category" className="form-label">Category</label>
-                        <select required name="category" className="form-select" value={category} onChange={(e) => { setCategory(e.target.value) }}>
-                            <option value="">Select a Category</option>
-                            <option value="Cookies">Cookies</option>
-                            <option value="Candies">Candies</option>
-                            <option value="Cakes">Cakes</option>
-                            <option value="Desserts">Desserts</option>
-                            <option value="Drinks">Drinks</option>
-                        </select>
-                    </div>
+        //             <div className="mb-3">
+        //                 <label htmlFor="category" className="form-label">Category</label>
+        //                 <select required name="category" className="form-select" value={category} onChange={(e) => { setCategory(e.target.value) }}>
+        //                     <option value="">Select a Category</option>
+        //                     <option value="Cookies">Cookies</option>
+        //                     <option value="Candies">Candies</option>
+        //                     <option value="Cakes">Cakes</option>
+        //                     <option value="Desserts">Desserts</option>
+        //                     <option value="Drinks">Drinks</option>
+        //                 </select>
+        //             </div>
 
-                    <div className="mb-3">
-                        <label htmlFor="unitePrice" className="form-label">Price</label>
-                        <input type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
-                    </div>
+        //             <div className="mb-3">
+        //                 <label htmlFor="unitePrice" className="form-label">Price</label>
+        //                 <input type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
+        //             </div>
 
-                    <div className="mb-3">
-                        <label htmlFor="status" className="form-label">Status</label>
-                        <select name="status" defaultValue="Active" className="form-select" value={status} onChange={(e) => { setStatus(e.target.value) }}>
-                            <option value="">Select a Status</option>
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
-                        </select>
-                    </div>
+        //             <div className="mb-3">
+        //                 <label htmlFor="status" className="form-label">Status</label>
+        //                 <select name="status" defaultValue="Active" className="form-select" value={status} onChange={(e) => { setStatus(e.target.value) }}>
+        //                     <option value="">Select a Status</option>
+        //                     <option value="Active">Active</option>
+        //                     <option value="Inactive">Inactive</option>
+        //                 </select>
+        //             </div>
 
 
-                    <button onClick={editProduct} className="btn m-3 btn-primary">Save Product</button>
+        //             <button onClick={editOrder} className="btn m-3 btn-primary">Save Product</button>
 
-                    <Link to='/products' className="m-3 btn btn-secondary">Cancel</Link>
+        //             <Link to='/products' className="m-3 btn btn-secondary">Cancel</Link>
 
-                </div>
-            </div>
-        </div>
+        //         </div>
+        //     </div>
+        // </div>
+        <h2>Edit order</h2>
     )
 }
 
 
-export default EditProduct
+export default EditOrder

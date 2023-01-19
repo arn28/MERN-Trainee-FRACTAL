@@ -20,6 +20,7 @@ const fileDB = require('./DBconnection')
 
 //Import routes and models
 const productRoute = require('./models/product.model')
+const orderRoute = require('./models/order.model')
 
 
 //Import body parser
@@ -27,7 +28,14 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: 'true' }))
 
+//routes to listen
 app.use('/api/product', productRoute)
+app.use('/api/order', orderRoute)
+
+//test order route
+// app.get('/api/order', (req, res) => {
+//     res.end('order route api Running ...')
+// })
 
 app.get('/', (req, res) => {
     res.end('Welcome to backend Node.js to MERN Trainee FRACTAL. Running...')

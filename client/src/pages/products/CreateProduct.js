@@ -58,16 +58,16 @@ function CreateProduct() {
         <div>
             <div className='container'>
                 <h2 className='createProduct__title title'>Create Product</h2>
-                <div className="row">
-                    <div className="col-sm-6 offset-3">
+                <div className="row container">
+                    <div className=" col-8 offset-auto m-auto">
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name</label>
-                            <input autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>
+                            <input id='name' autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="category" className="form-label">Category</label>
-                            <select required name="category" className="form-select" value={category} onChange={(e) => { setCategory(e.target.value) }}>
+                            <select id='category' required name="category" className="form-select" value={category} onChange={(e) => { setCategory(e.target.value) }}>
                                 <option value="">Select a Category</option>
                                 <option value="Cookies">Cookies</option>
                                 <option value="Candies">Candies</option>
@@ -79,12 +79,12 @@ function CreateProduct() {
 
                         <div className="mb-3">
                             <label htmlFor="unitePrice" className="form-label">Price</label>
-                            <input type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
+                            <input id='unitePrice' type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="status" className="form-label">Status</label>
-                            <select name="status" defaultValue="Active" className="form-select" value={status} onChange={(e) => { setStatus(e.target.value) }}>
+                            <select id='status' name="status" defaultValue="Active" className="form-select" value={status} onChange={(e) => { setStatus(e.target.value) }}>
                                 <option value="">Select a Status</option>
                                 <option value="Active">Active</option>
                                 <option value="Inactive">Inactive</option>
