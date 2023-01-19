@@ -1,5 +1,5 @@
 const express = require('express')
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 
 //Import mongoDB connection
@@ -34,9 +34,9 @@ app.get('/', (req, res) => {
 // app.use(cors(options));
 
 
-app.use(cors({
-    origin: '*'
-}));
+// app.use(cors({
+//     origin: '*'
+// }));
 
 //Basic server config
 const port = 9001;
