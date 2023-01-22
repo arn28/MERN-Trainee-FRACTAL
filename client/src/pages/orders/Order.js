@@ -44,7 +44,7 @@ function Order({ order, index }) {
 
     }
 
-    function formatDate(dateRaw) {
+    const formatDate = (dateRaw) => {
         var date = new Date(dateRaw);
         var formattedDate = date.getUTCDate().toString().padStart(2, '0')  + '-' + (date.getUTCMonth() + 1).toString().padStart(2, '0')  + '-' + date.getUTCFullYear();
         return (formattedDate);
@@ -59,8 +59,7 @@ function Order({ order, index }) {
             <td>{formatDate(order.date)}</td>
             <td>{order.totalAmount ? `$${order.totalAmount.toFixed(2)}` : ''}</td>
             <td>
-                <Link to={`/productdetail/${order.orderNumber}`} className='btn btn-edit'><i className="fa-solid fa-circle-info"></i></Link>
-                <Link to={`/editproduct/${order.orderNumber}`} className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></Link>
+                <Link to={`/orderdetail/${order.orderNumber}`} className='btn btn-edit'><i className="fa-solid fa-circle-info"></i></Link>
                 <button onClick={() => { delOrder(order.orderNumber) }} className='btn btn-delete fa-solid fa-trash'><i className=""></i></button>
             </td>
         </tr>

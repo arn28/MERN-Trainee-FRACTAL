@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const OrderModel = require('../models/order.model')
-
-
+const Product = require('../models/product.model')
 
 //testing route
 // router.get('/example', (req, res) => {
@@ -22,6 +21,30 @@ router.post('/createorder', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 })
+
+router.post('/updateorder', (req, res) => {
+    OrderModel.findOneAndUpdate({ orderNumber: req.body.orderNumber }, {
+        status: req.body.status
+    }, (err) => {
+        if (!err) {
+            res.send('Product updated successfully!')
+        } else {
+            res.send(err)
+        }
+    })
+})
+
+//get a product data
+router.post('/getorderdata', (req, res) => {
+    OrderModel.find({ orderNumber: req.body.orderNumber }, function (docs, err) {
+        if (!err) {
+            res.send(docs)
+        } else {
+            res.send(err)
+        }
+    })
+})
+
 
 //get all the orders
 router.get('/getorders', (req, res) => {
@@ -45,21 +68,6 @@ router.post('/getorderdata', (req, res) => {
     })
 })
 
-//modify and update a order
-router.post('/updateorder', (req, res) => {
-    OrderModel.findOneAndUpdate({ orderNumber: req.body.orderNumber }, {
-        status: req.body.status,
-        date: req.body.date,
-        customer: req.body.customer,
-        orderItems: req.body.orderItems
-    }, (err) => {
-        if (!err) {
-            res.send('order updated successfully!')
-        } else {
-            res.send(err)
-        }
-    })
-})
 
 //delete a order
 router.post('/delorder', (req, res) => {
@@ -71,6 +79,8 @@ router.post('/delorder', (req, res) => {
         }
     })
 })
+
+
 
 
 module.exports = router;

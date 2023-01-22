@@ -31,7 +31,7 @@ router.get('/getproducts', (req, res) => {
     })
 })
 
-//get a product data
+//get a product data to update later
 router.post('/getproductdata', (req, res) => {
     ProductModel.find({ idproduct: req.body.idproduct }, function (docs, err) {
         if (!err) {
