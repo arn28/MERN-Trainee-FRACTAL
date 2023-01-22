@@ -87,8 +87,8 @@ function EditProduct() {
     return (
         <div className='container'>
             <h2 className='products__title title m-0 mt-4 mb-4'>Edit Product: {name}</h2>
-            <div className="row">
-                <div className="col-8 offset-auto m-auto">
+            <div className="row container">
+                <div className="col-8 offset-auto m-auto" id='container__create'> 
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input id='name' autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>

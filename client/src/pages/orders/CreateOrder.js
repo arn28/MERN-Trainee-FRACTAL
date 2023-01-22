@@ -1,4 +1,4 @@
-// import './CreateProduct.css';
+import './CreateOrder.css';
 import Swal from 'sweetalert2';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -154,7 +154,7 @@ function CreateOrder() {
 
         <div className='container'>
             <h2 className='createProduct__title title'>Create Order </h2>
-            <div className="mt-5 mb-2 row">
+            <div className="mt-5 mb-2 row" id='create-order__container'>
                 <div className="col-6 offset-auto">
                     <div className="mb-3">
                         <label htmlFor="customer" className="form-label" >Consumer</label>
@@ -165,11 +165,6 @@ function CreateOrder() {
                         <label htmlFor="date" className="form-label">Date</label>
                         <input id='date' type="date" className="form-control" name='date' value={formOrder.date} onChange={preCreateOrder}></input>
                     </div>
-
-                    {/* <div className="mb-3">
-                        <label htmlFor="items" className="form-label">Items</label>
-                        <input id='items' type="number" className="form-control" value={items} onChange={(e) => { setItems(e.target.value) }}></input>
-                    </div> */}
 
                 </div>
 

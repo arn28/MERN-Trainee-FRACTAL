@@ -59,7 +59,7 @@ function CreateProduct() {
             <div className='container'>
                 <h2 className='createProduct__title title'>Create Product</h2>
                 <div className="row container">
-                    <div className=" col-8 offset-auto m-auto">
+                    <div className=" col-8 offset-auto m-auto" id='container__create'>
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name</label>
                             <input id='name' autoFocus type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }}></input>

@@ -1,7 +1,35 @@
 
-.btn.btn-primary {
-    --bs-btn-bg: #264653;
-    --bs-btn-border-color: none;
-    --bs-btn-hover-bg: rgb(38, 70, 83, 0.85);
-    --bs-btn-active-bg: rgb(38, 70, 83, 0.85);
+@media all and (max-width:720px) {
+    
+    .mt-5.mb-2.row#create-order__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .mt-5.mb-2.row#create-order__container>div{
+        width: 80%;   
+    }
+
+
+
 }
+
+
+@media all and (max-width:420px) {
+    .col-8.offset-auto.m-auto#container__create{
+        margin: 0;
+        padding: 0 5%;
+        width: 90%;
+    }
+
+    .container .row.container{
+        margin: 0;
+        height: calc(80vh - 70px);
+    }
+}
+
+
