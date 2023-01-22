@@ -21,7 +21,7 @@ function EditOrder() {
 
     //get date from a product
     useEffect(() => {
-        axios.post('/api/order/getproductdata', { orderNumber: params.orderNumber }).then(res => {
+        axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/getproductdata', { orderNumber: params.orderNumber }).then(res => {
             console.log(res.data[0])
             const dataorder = res.data[0]
             setCustomer(dataorder.customer)
@@ -65,7 +65,7 @@ function EditOrder() {
                     }
 
                     //Make request using axios
-                    axios.post('/api/order/updateorder', updateorder).then(res => {
+                    axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/updateorder', updateorder).then(res => {
                         console.log(res.data)
                         Swal.fire({
                             icon: "success",
@@ -106,8 +106,8 @@ function EditOrder() {
         //             </div>
 
         //             <div className="mb-3">
-        //                 <label htmlFor="unitePrice" className="form-label">Price</label>
-        //                 <input type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
+        //                 <label htmlFor="unitPrice" className="form-label">Price</label>
+        //                 <input type="number" className="form-control" value={unitPrice} onChange={(e) => { setunitPrice(e.target.value) }}></input>
         //             </div>
 
         //             <div className="mb-3">

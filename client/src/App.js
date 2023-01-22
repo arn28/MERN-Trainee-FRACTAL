@@ -9,6 +9,7 @@ import NavMenu from './pages/NavMenu.js';
 import OrdersList from './pages/orders/OrdersList';
 import CreateOrder from './pages/orders/CreateOrder';
 import EditOrder from './pages/orders/EditOrder';
+import OrderForm from './pages/orders/OrderForm';
 
 
 function App() {
@@ -27,8 +28,10 @@ function App() {
           <Route path='/editproduct/:idproduct' element={<EditProduct />} exact></Route>
           
           <Route path='/orders' element={<OrdersList />} exact></Route>
+          <Route path='/orderform' element={<OrderForm />} exact></Route>
           <Route path='/createorder' element={<CreateOrder />} exact></Route>
           <Route path='/editorder/:orderNumber' element={<EditOrder />} exact></Route>
+          <Route path='/productdetail/:orderNumber' element={<EditOrder />} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>

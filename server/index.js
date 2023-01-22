@@ -19,8 +19,8 @@ app.use(cors(corsOptions));
 const fileDB = require('./DBconnection')
 
 //Import routes and models
-const productRoute = require('./models/product.model')
-const orderRoute = require('./models/order.model')
+const productRoute = require('./routes/product.route')
+const orderRoute = require('./routes/order.route')
 
 
 //Import body parser

@@ -50,7 +50,7 @@ function Product({ product, index }) {
             <th scope="row">{index + 1}</th>
             <td>{product.name}</td>
             <td>{product.category}</td>
-            <td>${product.unitePrice}</td>
+            <td>${product.unitPrice}</td>
             <td>{product.status}</td>
             <td>
                 <Link to={`/editproduct/${product.idproduct}`} className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></Link>

@@ -12,7 +12,7 @@ function EditProduct() {
     //Hooks
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
-    const [unitePrice, setUnitePrice] = useState('')
+    const [unitPrice, setunitPrice] = useState('')
     const [status, setStatus] = useState('')
 
 
@@ -26,7 +26,7 @@ function EditProduct() {
             const dataproduct = res.data[0]
             setName(dataproduct.name)
             setCategory(dataproduct.category)
-            setUnitePrice(dataproduct.unitePrice)
+            setunitPrice(dataproduct.unitPrice)
             setStatus(dataproduct.status)
         })
     }, [])
@@ -36,7 +36,7 @@ function EditProduct() {
 
         if (name === '' ||
             category === '' ||
-            unitePrice === '' ||
+            unitPrice === '' ||
             status === '') {
             Swal.fire({
                 icon: 'error',
@@ -60,7 +60,7 @@ function EditProduct() {
                     var updateproduct = {
                         name: name,
                         category: category,
-                        unitePrice: parseFloat(unitePrice),
+                        unitPrice: parseFloat(unitPrice),
                         status: status,
                         idproduct: params.idproduct
                     }
@@ -107,8 +107,8 @@ function EditProduct() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="unitePrice" className="form-label">Price</label>
-                        <input id='unitePrice' type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
+                        <label htmlFor="unitPrice" className="form-label">Price</label>
+                        <input id='unitPrice' type="number" className="form-control" value={unitPrice} onChange={(e) => { setunitPrice(e.target.value) }}></input>
                     </div>
 
                     <div className="mb-3">

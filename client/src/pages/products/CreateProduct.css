@@ -5,3 +5,12 @@
     --bs-btn-hover-bg: rgb(38, 70, 83, 0.85);
     --bs-btn-active-bg: rgb(38, 70, 83, 0.85);
 }
+
+.btn>.fa-solid{
+    color:green;
+    font-size: 16px;
+}
+
+.btn>.fa-solid:hover{
+    opacity: 69%;
+}

@@ -9,7 +9,7 @@ function OrdersList() {
     const [dataorders, setdataorders] = useState([])
 
     useEffect(() => {
-        axios.get('/api/order/getorders').then(res => {
+        axios.get('https://mern-trainee-fractal-backend.up.railway.app/api/order/getorders').then(res => {
             // console.log(res.data)
             setdataorders(res.data)
             console.log('test data useeffect');

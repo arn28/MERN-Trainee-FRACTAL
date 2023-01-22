@@ -21,7 +21,7 @@ function Order({ order, index }) {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('/api/order/delorder', { orderNumber: orderNumber }).then(res => {
+                axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/delorder', { orderNumber: orderNumber }).then(res => {
                     console.log(res.data)
                     // alert(res.data)
                     Swal.fire({
@@ -57,8 +57,9 @@ function Order({ order, index }) {
             <td>{order.customer}</td>
             <td>{order.status}</td>
             <td>{formatDate(order.date)}</td>
-            <td>{order.totalAmount}</td>
+            <td>{order.totalAmount ? `$${order.totalAmount.toFixed(2)}` : ''}</td>
             <td>
+                <Link to={`/productdetail/${order.orderNumber}`} className='btn btn-edit'><i class="fa-solid fa-circle-info"></i></Link>
                 <Link to={`/editproduct/${order.orderNumber}`} className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></Link>
                 <button onClick={() => { delOrder(order.orderNumber) }} className='btn btn-delete fa-solid fa-trash'><i className=""></i></button>
             </td>

@@ -12,14 +12,14 @@ function CreateProduct() {
     //Hooks
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
-    const [unitePrice, setUnitePrice] = useState('')
+    const [unitPrice, setunitPrice] = useState('')
     const [status, setStatus] = useState('')
 
     function addProduct() {
         var product = {
             name: name,
             category: category,
-            unitePrice: parseFloat(unitePrice),
+            unitPrice: parseFloat(unitPrice),
             status: status,
             idproduct: uniquid()
         }
@@ -78,8 +78,8 @@ function CreateProduct() {
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="unitePrice" className="form-label">Price</label>
-                            <input id='unitePrice' type="number" className="form-control" value={unitePrice} onChange={(e) => { setUnitePrice(e.target.value) }}></input>
+                            <label htmlFor="unitPrice" className="form-label">Price</label>
+                            <input id='unitPrice' type="number" className="form-control" value={unitPrice} onChange={(e) => { setunitPrice(e.target.value) }}></input>
                         </div>
 
                         <div className="mb-3">
