@@ -23,7 +23,6 @@ function CreateProduct() {
             status: status,
             idproduct: uniquid()
         }
-        console.log(product)
 
         //
         axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product/createproduct', product)

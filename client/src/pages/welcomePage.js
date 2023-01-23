@@ -6,7 +6,7 @@ function WelcomePage() {
         <div className="container welcome__container">
 
             <h2 className="display-4">MERN Trainee Technical Test</h2>
-            <h3 className="lead">By Arnold Balabarca using:</h3>
+            <h3 className="lead">By Arnold Balabarca, using:</h3>
 
             <div>
                 <img className="welcome__img" src="https://upload.wikimedia.org/wikipedia/commons/9/94/MERN-logo.png" alt="MERN Stack"></img>
@@ -15,6 +15,7 @@ function WelcomePage() {
                 <Link to='/orders' className="btn m-3 btn-primary welcome__option">View Orders</Link>
                 <Link to='/products' className="btn m-3 btn-primary welcome__option">View Products</Link>
             </div>
+                <a href='https://github.com/arn28/MERN-Trainee-FRACTAL' target="_blank" rel="noreferrer" className="btn m-3 btn-info welcome__option">View GitHub repo</a>
 
         </div>
 

@@ -22,14 +22,13 @@ function EditProduct() {
     //get date from a product
     useEffect(() => {
         axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product/getproductdata', { idproduct: params.idproduct }).then(res => {
-            console.log(res.data[0])
             const dataproduct = res.data[0]
             setName(dataproduct.name)
             setCategory(dataproduct.category)
             setunitPrice(dataproduct.unitPrice)
             setStatus(dataproduct.status)
         })
-    }, [])
+    }, [params.idproduct])
 
     //update product
     function editProduct() {
@@ -67,7 +66,7 @@ function EditProduct() {
 
                     //Make request using axios
                     axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product/updateproduct', updateproduct).then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         Swal.fire({
                             icon: "success",
                             title: "Your product has been modified successfully.",

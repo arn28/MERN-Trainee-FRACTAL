@@ -21,9 +21,7 @@ function OrderDetail() {
             const dataorder = res.data[0]
             setUpdateOrder(dataorder);
         })
-    }, [])
-    console.log(updateOrder)
-
+    }, [params.orderNumber])
 
     //Get active products to add the order
     useEffect(() => {
@@ -63,10 +61,10 @@ function OrderDetail() {
 
                 var orderupdate = updateOrder;
                 orderupdate.status = newstatus;
-                console.log(orderupdate)
+                // console.log(orderupdate)
 
                 axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/updateorder', orderupdate).then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     Swal.fire({
                         icon: "success",
                         title: "Your Order status has been modified successfully.",
@@ -177,7 +175,7 @@ function OrderDetail() {
                     <tbody>
                         {updateOrder.orderItems ? updateOrder.orderItems.map((item, index) => (
                             <tr key={index} >
-                                <td scope="col">{index + 1}</td>
+                                <th scope="col">{index + 1}</th>
 
                                 <td className='w-50 text-start' >{dataproducts.find(i => i._id === item.product) ? `${dataproducts.find(i => i._id === item.product).name}` : ''}</td>
                                 <td className='' >{item.quantity}</td>

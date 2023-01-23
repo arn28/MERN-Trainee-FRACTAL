@@ -9,6 +9,10 @@ function CreateOrder() {
 
     const navegate = useNavigate()
 
+    // Having the current date as default
+    var dateRaw = new Date();
+    var formattedDate = dateRaw.getUTCFullYear() + '-' + (dateRaw.getUTCMonth() + 1).toString().padStart(2, '0') + '-' + dateRaw.getUTCDate().toString().padStart(2, '0');
+
     //Hooks
     const [formOrder, setFormOrder] = useState({
         orderNumber: uniquid(),
@@ -28,18 +32,6 @@ function CreateOrder() {
         federalTax: 0,
         totalTaxes: 0
     });
-
-    // useEffect(() => {
-    //     getSubtotal()
-    //     console.log(subtotal)
-    // }, [formOrder.orderItems])
-
-
-
-    // Having the current date as default
-    var dateRaw = new Date();
-    var formattedDate = dateRaw.getUTCFullYear() + '-' + (dateRaw.getUTCMonth() + 1).toString().padStart(2, '0') + '-' + dateRaw.getUTCDate().toString().padStart(2, '0');
-
 
     //Get active products to add the order
     useEffect(() => {
@@ -61,8 +53,6 @@ function CreateOrder() {
 
     //Create Order
     function addOrder() {
-        console.log("before->")
-        console.log(formOrder)
 
         axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/createorder', formOrder)
             .then(res => {
@@ -96,10 +86,7 @@ function CreateOrder() {
         const orderItems = [...formOrder.orderItems];
         orderItems[index][e.target.name] = e.target.value;
         setFormOrder({ ...formOrder, orderItems });
-        console.log(formOrder.orderItems)
-        console.log(formOrder)
         getSubtotal()
-        console.log(subtotal)
     }
 
     //Add Item
@@ -114,7 +101,6 @@ function CreateOrder() {
     function removeItem(index) {
         formOrder.orderItems.splice(index, 1);
         setFormOrder({ ...formOrder });
-        console.log("erased")
     }
 
     //getting subtotal
@@ -131,6 +117,7 @@ function CreateOrder() {
                 let productPrice = dataproducts.find(i => i._id === formOrder.orderItems[index].product).unitPrice * item.quantity;
                 subtotalSum = subtotalSum + productPrice;
             }
+            return subtotalSum;
         })
 
         cityTax = subtotalSum * 0.10;
@@ -233,13 +220,14 @@ function CreateOrder() {
                                         <option value="">Select a product</option>
 
                                         {dataproducts.map(product => {
-                                            if (product.status == 'Active') {
+                                            if (product.status === 'Active') {
                                                 return (
                                                     <option key={product._id} value={product._id}>
                                                         {product.name}
                                                     </option>
                                                 )
                                             }
+                                            return product._id
                                         })}
                                     </select>
                                 </td>

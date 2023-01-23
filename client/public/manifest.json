@@ -1,14 +1,14 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Order system",
+  "name": "Simple Order management system",
   "icons": [
       {
       "src": "icon.png",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://mern-trainee-fractal-frontend.netlify.app/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#264653",
+  "background_color": "#264653"
 }

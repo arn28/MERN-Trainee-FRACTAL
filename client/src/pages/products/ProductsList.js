@@ -1,4 +1,3 @@
-// import axios from 'axios'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -12,9 +11,7 @@ function ProductsList() {
         axios.get('https://mern-trainee-fractal-backend.up.railway.app/api/product/getproducts').then(res => {
             // console.log(res.data)
             setdataproduct(res.data)
-            // console.log('test data useeffect');
-            // console.log(res.data);
-            // console.log('end');
+
         }).catch(err => {
             console.log(err)
         })

@@ -23,7 +23,6 @@ function Order({ order, index }) {
             if (result.isConfirmed) {
                 axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/delorder', { orderNumber: orderNumber }).then(res => {
                     console.log(res.data)
-                    // alert(res.data)
                     Swal.fire({
                         icon: "success",
                         title: "Deleted!",

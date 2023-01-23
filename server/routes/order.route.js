@@ -37,15 +37,7 @@ router.post('/getorderdata', (req, res) => {
 router.post('/updateorder', (req, res) => {
     OrderModel.findOneAndUpdate({ orderNumber: req.body.orderNumber }, {
         status: req.body.status
-        // date: req.body.date,
-        // customer: req.body.customer,
-        // cityTax: req.body.cityTax,
-        // countyTax: req.body.countyTax,
-        // stateTax: req.body.stateTax,
-        // federalTax: req.body.federalTax,
-        // totalTaxes: req.body.totalTaxes,
-        // totalAmount: req.body.totalAmount,
-        // orderItems: req.body.orderItems
+
     }, (err) => {
         if (!err) {
             res.send('Product updated successfully!')

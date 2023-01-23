@@ -23,8 +23,7 @@ function Product({ product, index }) {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/product/delproduct', { idproduct: idproduct }).then(res => {
-                    console.log(res.data)
-                    // alert(res.data)
+                    // console.log(res.data)
                     Swal.fire({
                         icon: "success",
                         title: "Deleted!",
