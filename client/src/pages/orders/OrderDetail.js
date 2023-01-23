@@ -16,7 +16,7 @@ function OrderDetail() {
 
     //get data from a order
     useEffect(() => {
-        axios.post('http://localhost:9000/api/order/getorderdata', { orderNumber: params.orderNumber }).then(res => {
+        axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/getorderdata', { orderNumber: params.orderNumber }).then(res => {
 
             const dataorder = res.data[0]
             setUpdateOrder(dataorder);
