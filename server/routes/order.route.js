@@ -22,9 +22,30 @@ router.post('/createorder', async (req, res) => {
     }
 })
 
+//get an order data to update later
+router.post('/getorderdata', (req, res) => {
+    OrderModel.find({ orderNumber: req.body.orderNumber }, function (docs, err) {
+        if (!err) {
+            res.send(docs)
+        } else {
+            res.send(err)
+        }
+    })
+})
+
+//modify order
 router.post('/updateorder', (req, res) => {
     OrderModel.findOneAndUpdate({ orderNumber: req.body.orderNumber }, {
         status: req.body.status
+        // date: req.body.date,
+        // customer: req.body.customer,
+        // cityTax: req.body.cityTax,
+        // countyTax: req.body.countyTax,
+        // stateTax: req.body.stateTax,
+        // federalTax: req.body.federalTax,
+        // totalTaxes: req.body.totalTaxes,
+        // totalAmount: req.body.totalAmount,
+        // orderItems: req.body.orderItems
     }, (err) => {
         if (!err) {
             res.send('Product updated successfully!')
@@ -33,6 +54,8 @@ router.post('/updateorder', (req, res) => {
         }
     })
 })
+
+
 
 //get a product data
 router.post('/getorderdata', (req, res) => {

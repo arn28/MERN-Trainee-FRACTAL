@@ -44,8 +44,7 @@ const orderSchema = new schema({
     },
     totalTaxes: { type: Number },
     totalAmount: { type: Number },
-    orderItems: [orderItemSchema],
-    test: String
+    orderItems: [orderItemSchema]
 });
 
 //prehook to calculate taxes

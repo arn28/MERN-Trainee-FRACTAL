@@ -22,7 +22,7 @@ function OrderDetail() {
             setUpdateOrder(dataorder);
         })
     }, [])
-    console.log(updateOrder.orderNumber)
+    console.log(updateOrder)
 
 
     //Get active products to add the order
@@ -38,10 +38,21 @@ function OrderDetail() {
     }, [])
 
     //chage status
-    const completeOrder = () => {
+    function completeOrder(){
+        updateStatusOrder("Completed")
+
+    }
+
+    function rejectOrder() {
+        updateStatusOrder("Rejected")
+    }
+
+
+    async function updateStatusOrder(newstatus) {
+
         Swal.fire({
             title: "Are you sure?",
-            text: "Do you want to change the status to Completed?",
+            text: "Do you want to change the status to "+ newstatus+"?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#264653",
@@ -49,47 +60,26 @@ function OrderDetail() {
             confirmButtonText: "Yes, update it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                setUpdateOrder({
-                    ...updateOrder,
-                    status: 'Completed'
-                });
-                updateStatusOrder();
+
+                var orderupdate = updateOrder;
+                orderupdate.status = newstatus;
+                console.log(orderupdate)
+
+                axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/updateorder', orderupdate).then(res => {
+                    console.log(res.data)
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your Order status has been modified successfully.",
+                        confirmButtonColor: "#264653",
+                        text: ""
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            navegate(0);
+                        }
+                    });
+                }).catch(err => { console.log(err) })
             }
         });
-
-
-
-    }
-
-    const rejectOrder = () => {
-
-        let newstatus = 'Rejected';
-        setUpdateOrder({
-            ...updateOrder,
-            status: newstatus
-        });
-        console.log(updateOrder)
-
-
-        updateStatusOrder();
-    }
-
-
-    async function updateStatusOrder() {
-
-        await axios.post('https://mern-trainee-fractal-backend.up.railway.app/api/order/updateorder', updateOrder).then(res => {
-            console.log(res.data)
-            Swal.fire({
-                icon: "success",
-                title: "Your Order status has been modified successfully.",
-                confirmButtonColor: "#264653",
-                text: ""
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navegate(0);
-                }
-            });
-        }).catch(err => { console.log(err) })
     }
 
     const formatDate = (dateRaw) => {

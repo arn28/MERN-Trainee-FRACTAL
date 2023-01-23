@@ -10,10 +10,10 @@ function EditProduct() {
     const params = useParams()
 
     //Hooks
-    const [name, setName] = useState('')
-    const [category, setCategory] = useState('')
-    const [unitPrice, setunitPrice] = useState('')
-    const [status, setStatus] = useState('')
+    const [name, setName] = useState('');
+    const [category, setCategory] = useState('');
+    const [unitPrice, setunitPrice] = useState('');
+    const [status, setStatus] = useState('');
 
 
     //use to go back to index
